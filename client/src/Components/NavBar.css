@@ -1,0 +1,45 @@
+ 
+.navbar {
+            background-color: white;
+            color: #3D5B59;
+            font-size: medium;
+            display: flex;
+        
+        }
+
+ul li {
+        list-style: none;
+        padding: 10px 20px;
+  
+    }
+  
+ul li a {
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: bold;
+        color: #3D5B59;
+        position: relative;
+  
+    }
+  
+ul li a::before {
+        content: "";
+        width: 0px;
+        height: 10px;
+        background: #B5E5CF;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: .5s;
+    }
+  
+ul li a:hover::before {
+        width: 50%;
+        transform: translateX(100%);
+    }
+        footer {
+            background-color: #B5E5CF;
+            color: #B99095;
+            text-align: center;
+            padding: 2%;
+        }
