@@ -67,14 +67,3 @@ function TourView() {
 }
 
 export default TourView;
-
-{
-	/*   {collection.map((image, index) => (
-        <img
-        
-        key={index}
-								alt="description"
-								src={collection[index].webImage.url}
-							/>
-        ))}  */
-}
