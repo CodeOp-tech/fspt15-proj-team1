@@ -10,7 +10,7 @@ function Footer() {
       <a href="https://twitter.com/"><FaTwitter /></a>
       <a href="https://www.instagram.com/"><FaInstagram /></a>
     </div>
-    //copyrights and company name
+
     <p>&copy; 2023 ReTaGa</p>
   </footer>);
 }
