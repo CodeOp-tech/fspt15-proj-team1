@@ -8,17 +8,26 @@ function ArtView() {
   let params = useParams();
   const [artwork, setArtwork] = useState({});
 
-  // I THINK THERE IS SOMETHING WRONG WITH HOW I AM FETCHING DATA FROM API
-  const fetchArtwork = async () => {
+  // I THINK THERE IS SOMETHING WRONG WITH HOW I AM FETCHING DATA FROM THE API
+  /*const fetchArtwork = async () => {
     const resp = await fetch(
       `https://www.rijksmuseum.nl/api/en/collection?key=${API_Key}&${params.id}`
     );
 
     const data = await resp.json();
     return data;
-  };
+  };*/
 
   useEffect(() => {
+    const fetchArtwork = async () => {
+      const resp = await fetch(
+        `https://www.rijksmuseum.nl/api/en/collection?key=${API_Key}&${params.id}`
+      );
+
+      const data = await resp.json();
+      return data;
+    };
+
     let isMounted = true;
 
     fetchArtwork().then((data) => {
