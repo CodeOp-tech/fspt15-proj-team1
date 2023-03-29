@@ -1,15 +1,5 @@
-<<<<<<< HEAD
-import React from "react";
-
-import { useState } from "react";
-||||||| eb58000
-import React from "react";
-import "./App.css";
-import React, { useState } from "react";
-=======
 import React, { useState } from 'react';
 import './TourView.css';
->>>>>>> main
 
 const API_Key = 'IagrCxtB';
 
