@@ -1,0 +1,18 @@
+.container-grid {
+	display: grid;
+	grid-template-columns: 4fr;
+	gap: 40px;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(4, 4fr);
+	grid-auto-rows: 180px;
+	gap: 50px;
+	padding-top: 2%;
+}
+
+.coll-img {
+	width: 100%;
+	padding: 5%;
+}
