@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { NavLink } from "react-router-dom";
 
 const API_Key = "IagrCxtB";
 
@@ -9,9 +8,10 @@ function ArtView() {
   let params = useParams();
   const [artwork, setArtwork] = useState({});
 
+  // I THINK THERE IS SOMETHING WRONG WITH HOW I AM FETCHING DATA FROM API
   const fetchArtwork = async () => {
     const resp = await fetch(
-      `https://www.rijksmuseum.nl/api/en/collection?key=${API_Key}&hasImage=true&p=10.000&ps=100`
+      `https://www.rijksmuseum.nl/api/en/collection?key=${API_Key}&${params.id}`
     );
 
     const data = await resp.json();
@@ -21,25 +21,21 @@ function ArtView() {
   useEffect(() => {
     let isMounted = true;
 
-    ArtView().then((data) => {
+    fetchArtwork().then((data) => {
       if (isMounted) setArtwork(data);
     });
     return () => {
       isMounted = false;
     };
-  });
+  }, [params.id]);
 
-  // WILL NEED TO REVISE TO COORDINATE WITH TOURVIEW AND API INFO
-  // ArtView USES collection, setCollection
-  // TourView USES artwork, setArtwork
-  // LOOK AT API DATA TO MATCH NAMES
-  // NOTE principalOrFirstMaker SEEMS TO BE ARTIST NAME
-  // DON'T SEE DESCRIPTION OPTION IN API??
+  // TourView useState collection, setCollection
+  // ArtView useState artwork, setArtwork
 
   return (
     <div className="ArtView">
       <img src={artwork.artObjects[0].webImage.url} alt={artwork.title} />
-      <h2>{artwork.artObjects[0].title}</h2>
+      <h2>{artwork.artObjects[0].longTitle}</h2>
       <div>{artwork.artObjects[0].principalOrFirstMaker}</div>
       <div>{artwork.artObjects[0].description}</div>
       <div>{artwork.artObjects[0].type}</div>
