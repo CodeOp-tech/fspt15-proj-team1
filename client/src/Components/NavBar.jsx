@@ -1,9 +1,11 @@
 import React from "react";
 import "./NavBar.css";
+import {NavLink, Route, Routes} from 'react-router-dom';
+
 
 function NavBar() {
   return (
-  <nav>
+  <div>
     <ul class=" navbar">
 {/* the website can be navigated using only the keyboard with the tabIndex*/}
         <li><a href="#" tabIndex="1">Home</a></li>
@@ -13,7 +15,14 @@ function NavBar() {
        <li><a href="#videotour" tabIndex="5">VideoTour</a></li>
     </ul>
 
-</nav>
+
+<div style={{ margin: '10px' }}>
+                        
+                    </div>
+                   
+                   
+                   
+                     </div>
   );
 }
 

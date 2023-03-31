@@ -1,7 +1,7 @@
 import React from "react";
 
 function ArtView() {
-  return <div>ArtView</div>;
+  return <div id="#artview">ArtView</div>;
 }
 
 export default ArtView;

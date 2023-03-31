@@ -1,7 +1,8 @@
 import React from "react";
-import Navbar from './Components/NavBar';
-import Footer from './Components/Footer';
+import Navbar from '../NavBar';
+import Footer from '../Footer';
 import VideoTour from './Pages/VideoTour';
+
 
 function Home() {
   return (
