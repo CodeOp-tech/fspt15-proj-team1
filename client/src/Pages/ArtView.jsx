@@ -20,11 +20,15 @@ function ArtView() {
   };*/
 
   const fetchArtwork = async () => {
-    const resp = await fetch(
-      `https://www.rijksmuseum.nl/api/en/collection/${params.id}?key=${API_Key}`
-    );
-    const data = await resp.json();
-    return data;
+    try {
+      const resp = await fetch(
+        `https://www.rijksmuseum.nl/api/en/collection/${params.id}?key=${API_Key}`
+      );
+      const data = await resp.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
@@ -43,13 +47,17 @@ function ArtView() {
 
   return (
     <div className="ArtView">
-      <img src={artwork.artObjects[0].webImage.url} alt={artwork.title} />
-      <h2>{artwork.artObjects[0].longTitle}</h2>
-      <div>{artwork.artObjects[0].principalOrFirstMaker}</div>
-      <div>{artwork.artObjects[0].description}</div>
-      <div>{artwork.artObjects[0].type}</div>
-      <div>{artwork.artObjects[0].material}</div>
-      <div>{artwork.artObjects[0].technique}</div>
+      {artwork.artObjects.length > 0 && (
+        <>
+          <img src={artwork.artObjects[0].webImage.url} alt={artwork.title} />
+          <h2>{artwork.artObjects[0].longTitle}</h2>
+          <div>{artwork.artObjects[0].principalOrFirstMaker}</div>
+          <div>{artwork.artObjects[0].description}</div>
+          <div>{artwork.artObjects[0].type}</div>
+          <div>{artwork.artObjects[0].material}</div>
+          <div>{artwork.artObjects[0].technique}</div>
+        </>
+      )}
     </div>
   );
 }
