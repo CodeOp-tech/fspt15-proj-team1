@@ -54,12 +54,6 @@ function TourView() {
 							/>
 						))}
 					</div>
-					/* <div className="col-sm">
-							<img alt="description" src={collection[0].webImage.url} />
-						</div>
-						<div className="col-sm">
-							<img alt="description" src={collection[0].webImage.url} />
-						</div> */
 				)}
 			</div>
 		</div>
@@ -67,14 +61,3 @@ function TourView() {
 }
 
 export default TourView;
-
-{
-	/*   {collection.map((image, index) => (
-        <img
-        
-        key={index}
-								alt="description"
-								src={collection[index].webImage.url}
-							/>
-        ))}  */
-}
