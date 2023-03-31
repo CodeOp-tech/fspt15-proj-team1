@@ -1,20 +1,33 @@
-import React from "react";
-import "./NavBar.css";
+import React from 'react';
+import { NavLink, Route, Routes } from 'react-router-dom';
+import Home from '../Pages/Home';
+import TourView from '../Pages/TourView';
+import './NavBar.css';
 
 function NavBar() {
-  return (
-  <nav>
-    <ul class=" navbar">
-{/* the website can be navigated using only the keyboard with the tabIndex*/}
-        <li><a href="#" tabIndex="1">Home</a></li>
-        <li><a href="#artview" tabIndex="2">ArtView</a></li>
-        <li><a href="#search" tabIndex="3">Search</a></li>
-       <li><a href="#tourview" tabIndex="4">TourView</a></li>
-       <li><a href="#videotour" tabIndex="5">VideoTour</a></li>
-    </ul>
-
-</nav>
-  );
+	return (
+		<nav>
+			<ul class="navbar">
+				{/* the website can be navigated using only the keyboard with the tabIndex*/}
+				<li>
+					{/*<a href="#" tabIndex="1">*/}
+					<NavLink to="/">Home</NavLink>
+				</li>
+				<li>
+					<NavLink to="/ArtView">ArtView</NavLink>
+				</li>
+				<li>
+					<NavLink to="/Search">Search</NavLink>
+				</li>
+				<li>
+					<NavLink to="/TourView">TourView</NavLink>
+				</li>
+				<li>
+					<NavLink to="/VideoTour">VideoTour</NavLink>
+				</li>
+			</ul>
+		</nav>
+	);
 }
 
 export default NavBar;
