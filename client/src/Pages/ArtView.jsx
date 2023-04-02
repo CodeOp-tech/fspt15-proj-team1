@@ -1,35 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
-
-//const API_Key = "IagrCxtB";
 
 function ArtView() {
   let params = useParams();
+  console.log("Object number:", params.objectNumber);
   const [artwork, setArtwork] = useState({});
 
   const API_Key = "IagrCxtB";
 
-  // I THINK THERE IS SOMETHING WRONG WITH HOW I AM FETCHING DATA FROM THE API
-  /*const fetchArtwork = async () => {
-    const resp = await fetch(
-      `https://www.rijksmuseum.nl/api/en/collection/${params.id}?key=${API_Key}`
-    );
-
-    const data = await resp.json();
-    return data;
-  };*/
-
-  const fetchArtwork = async () => {
+  const fetchArtwork = useCallback(async () => {
     try {
       const resp = await fetch(
-        `https://www.rijksmuseum.nl/api/en/collection/${params.id}?key=${API_Key}`
+        `https://www.rijksmuseum.nl/api/en/collection/${params.objectNumber}?key=${API_Key}`
       );
       const data = await resp.json();
+      console.log(data);
+      console.log("fetchArtwork called");
       return data;
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [API_Key, params.objectNumber]);
 
   useEffect(() => {
     let isMounted = true;
@@ -40,22 +31,26 @@ function ArtView() {
     return () => {
       isMounted = false;
     };
-  }, [params.id]);
-
-  // TourView useState collection, setCollection
-  // ArtView useState artwork, setArtwork
+  }, [fetchArtwork]);
 
   return (
     <div className="ArtView">
-      {artwork.artObjects.length > 0 && (
+      {artwork.artObject && (
         <>
-          <img src={artwork.artObjects[0].webImage.url} alt={artwork.title} />
-          <h2>{artwork.artObjects[0].longTitle}</h2>
-          <div>{artwork.artObjects[0].principalOrFirstMaker}</div>
-          <div>{artwork.artObjects[0].description}</div>
-          <div>{artwork.artObjects[0].type}</div>
-          <div>{artwork.artObjects[0].material}</div>
-          <div>{artwork.artObjects[0].technique}</div>
+          <img
+            src={artwork.artObject.webImage.url}
+            alt={artwork.artObject.title}
+            style={{ maxWidth: "80%", height: "auto" }}
+          />
+          <h2> {artwork.artObject.longTitle}</h2>
+
+          <h4 style={{ border: "1px solid black" }}>
+            {artwork.artObject.scLabelLine}
+          </h4>
+
+          <div style={{ border: "1px solid black" }}>
+            <h6>{artwork.artObject.label.description}</h6>
+          </div>
         </>
       )}
     </div>

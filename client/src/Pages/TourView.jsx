@@ -48,10 +48,9 @@ function TourView() {
           <div className="grid">
             {/*  <h3>{collection[1].title}</h3>*/}
             {collection.map((obj, index) => (
-              <Link to="/ArtView/">
+              <Link to={`/ArtView/${obj.objectNumber}`} key={obj.objectNumber}>
                 <img
                   className="coll-img"
-                  key={index}
                   alt="description"
                   src={obj.webImage.url}
                 />

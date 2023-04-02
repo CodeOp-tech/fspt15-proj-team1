@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import Search from "./Pages/Search";
+//import Search from "./Pages/Search";
 import Home from "./Pages/Home";
 import TourView from "./Pages/TourView.jsx";
 import ArtView from "./Pages/ArtView.jsx";
@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/TourView" element={<TourView />} />
-        <Route path="/ArtView" element={<ArtView />} />
+        <Route path="/ArtView/:objectNumber" element={<ArtView />} />
         <Route path="/VideoTour" element={<VideoTour />} />
       </Routes>
       <Footer />
