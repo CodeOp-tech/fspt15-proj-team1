@@ -16,13 +16,16 @@ function App() {
 
 			<TourView />
 			<ArtView /> */}
-			<Footer />
+			
 
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/TourView" element={<TourView />} />
-				<Route path="/VideoTour" element={<VideoTour />} />
-			</Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/TourView" element={<TourView />} />
+        <Route path="/ArtView/:objectNumber" element={<ArtView />} />
+        <Route path="/VideoTour" element={<VideoTour />} />
+      </Routes>
+
+<Footer />
 		</div>
 	);
 }
