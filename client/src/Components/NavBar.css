@@ -2,8 +2,11 @@
 .navbar {
             background-color: white;
             color: #3D5B59;
-            font-size: medium;
+            font-size: large;
             display: flex;
+            justify-content: left;
+            align-content: flex-start;
+            margin-left: 80px;
         
         }
 
@@ -26,7 +29,7 @@ ul li a::before {
         content: "";
         width: 0px;
         height: 10px;
-        background: #B5E5CF;
+        background: #CCD5AE;
         position: absolute;
         top: 100%;
         left: 0;
@@ -37,9 +40,28 @@ ul li a:hover::before {
         width: 50%;
         transform: translateX(100%);
     }
-        footer {
-            background-color: #B5E5CF;
-            color: #B99095;
-            text-align: center;
-            padding: 2%;
-        }
+  
+          .nav-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+          }
+          
+          .nav-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+          }
+          
+          .nav-text {
+            font-size: 1.2rem;
+            font-weight: bold;
+          }
+          .logo {
+            margin-right: 10px;
+            /* add the following styles to move the logo to the right */
+            display: flex;
+            justify-content: flex-end;
+            flex: 1;
+          }
+          
