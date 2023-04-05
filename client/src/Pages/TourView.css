@@ -5,12 +5,12 @@
 }
 
 .grid {
-	display: grid;
+	display: inline-grid;
 	grid-template-columns: repeat(4, 4fr);
 	grid-auto-rows: 180px;
 	column-gap: 2vw;
 	row-gap: 35vh;
-	padding-top: 12%;
+	padding-top: 2%;
 	/* margin-top: 10vh; */
 }
 
@@ -19,4 +19,14 @@
 	padding: 5%;
 	align-self: center;
 	justify-self: center;
+}
+
+.nav-icon,
+.nav-text {
+	color: #3d5b59;
+}
+
+.spinner-text {
+	color: #3d5b59;
+	font-weight: 800;
 }
