@@ -24,7 +24,8 @@ function App() {
         <Route path="/ArtView/:objectNumber" element={<ArtView />} />
         <Route path="/VideoTour" element={<VideoTour />} />
       </Routes>
-			<Footer />
+
+<Footer />
 		</div>
 	);
 }
