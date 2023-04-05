@@ -9,3 +9,15 @@
     margin-left: 200px;
     margin-right: 200px;
   }
+
+  .splide-container {
+    padding-left: auto;
+    padding-right: auto;
+  }
+  .slide-image {
+    display: block;
+    margin: 10px auto;
+    height: 50%;
+    width: auto;
+  }
+  
