@@ -8,9 +8,24 @@
 .video-tour-container iframe {
   margin-bottom: 3rem;
 }
+.video {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 4rem; /* Increases the gap between the videos to 4rem */
+  padding: 100px;
+}
 .image {
   width: 100px;
   height: 100px;
   padding: auto;
   margin: auto;
+}
+.button {
+  background-color: #EC9704;
+color: white;
+font-size: 40px;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+
 }
