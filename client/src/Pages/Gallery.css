@@ -1,3 +1,15 @@
+.presentation {
+	background-color: #f0f0f0;
+	color: #333;
+	padding: 20px;
+	font-size: 24px;
+	line-height: 1.5;
+	text-align: center;
+	margin-bottom: 40px;
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
 .container-grid {
 	display: grid;
 	grid-template-columns: 4fr;
@@ -17,6 +29,11 @@
 .coll-img {
 	width: 100%;
 	padding: 5%;
+	/* align-self: center;
+	justify-self: center; */
+}
+
+.galleryImg {
 	align-self: center;
 	justify-self: center;
 }

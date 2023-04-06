@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './TourView.css';
+import './Gallery.css';
 import { FiImage } from 'react-icons/fi';
 import { HiOutlinePaintBrush } from 'react-icons/hi2';
 
@@ -14,26 +14,30 @@ const API_Key = 'IagrCxtB';
 
 //const imgUrl = collection[id].webImage.url;
 
-function TourView({ hidden, setHidden }) {
+function Gallery({ hidden, setHidden }) {
 	const [collection, setCollection] = useState();
 	const [error, setError] = useState('');
 	//const [hidden, setHidden] = useState(false);
 	const [loading, setLoading] = useState(false);
 
-	const handleClick = (e) => {
+	/* const handleClick = (e) => {
 		e.preventDefault();
 		getCollection();
 		//	hideButton();
-	};
+	}; */
 
 	/* const hideButton = () => {
 		hidden(true);
 	}; */
 
-	const [rows, setRows] = useState(8);
+	useEffect(() => {
+		getCollection();
+	}, []);
+
+	const [imgs, setImgs] = useState(8);
 
 	const handleLoadMore = () => {
-		setRows(rows + 8);
+		setImgs(imgs + 8);
 	};
 
 	const getCollection = async () => {
@@ -59,13 +63,25 @@ function TourView({ hidden, setHidden }) {
 	//	const visibleImages = collection.slice(0, rows);
 	return (
 		<div className="TourView">
-			{!hidden && (
+			<p className="presentation">
+				Welcome to the Rijksmuseum in Amsterdam, one of the most renowned
+				museums in the world! Founded in 1800, the Rijksmuseum is dedicated to
+				preserving and showcasing the rich artistic and cultural heritage of the
+				Netherlands, from the Middle Ages to modern times. With over 8,000
+				objects on display, including masterpieces by famous Dutch artists like
+				Rembrandt, Vermeer, and Van Gogh, the Rijksmuseum offers visitors an
+				unparalleled glimpse into the country's history, culture, and artistic
+				achievements. Join us on this virtual tour and explore the museum's
+				stunning collections and fascinating stories from the comfort of your
+				own home.
+			</p>
+			{/* {!hidden && (
 				<button type="button" onClick={handleClick} className="btn">
 					<ImEye className="nav-icon" />
 					<br />
 					<span className="nav-text">See Gallery</span>
 				</button>
-			)}
+			)} */}
 			{loading ? (
 				<>
 					<TripleMaze center={true} width={'150px'} height={'150px'} />
@@ -78,8 +94,9 @@ function TourView({ hidden, setHidden }) {
 						<>
 							<div className="grid">
 								{/*  <h3>{collection[1].title}</h3>*/}
-								{collection.slice(0, rows).map((obj, index) => (
+								{collection.slice(0, imgs).map((obj, index) => (
 									<Link
+										className="galleryImg"
 										to={`/ArtView/${obj.objectNumber}`}
 										key={obj.objectNumber}>
 										<img
@@ -92,7 +109,7 @@ function TourView({ hidden, setHidden }) {
 								))}
 							</div>
 							<div>
-								{rows < collection.length && (
+								{imgs < collection.length && (
 									<button
 										type="button"
 										onClick={handleLoadMore}
@@ -112,4 +129,4 @@ function TourView({ hidden, setHidden }) {
 	);
 }
 
-export default TourView;
+export default Gallery;
