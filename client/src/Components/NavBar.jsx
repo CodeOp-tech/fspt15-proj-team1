@@ -21,7 +21,7 @@ function NavBar() {
 					</NavLink>
 				</li>
 				<li>
-					<NavLink to="/TourView" className="nav-link">
+					<NavLink to="/Gallery" className="nav-link">
 						<FiImage className="nav-icon" />
 						<span className="nav-text">Gallery</span>
 					</NavLink>
