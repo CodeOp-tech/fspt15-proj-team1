@@ -1,18 +1,32 @@
 .footer {
-    background-color: #CCD5AE;
-    color: #FEFAE0;
-    text-align: center;
-    font-size: 30px;
-    padding: 20px;
-    margin-top: 50px;
-  }
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .social-icons a {
-    margin-right: 20px;
-  }
-  
+  background-color: #CCD5AE;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: bottom;
+  bottom: 0;
+  width: 100%;
+  font-size: 40px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: #fff;
+}
+
+.social-icons a:hover {
+  color: #0077b5;
+}
+
+.social-icons p {
+  margin-left: 10px;
+  font-size: 14px;
+}

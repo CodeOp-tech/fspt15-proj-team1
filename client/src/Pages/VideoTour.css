@@ -1,10 +1,16 @@
 .video-tour-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 2rem;
-  }
-  .video-tour-container iframe {
-    margin-bottom: 3rem;
-  }
-  
-  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 4rem; /* Increases the gap between the videos to 4rem */
+  padding: 100px;
+}
+
+.video-tour-container iframe {
+  margin-bottom: 3rem;
+}
+.image {
+  width: 100px;
+  height: 100px;
+  padding: auto;
+  margin: auto;
+}

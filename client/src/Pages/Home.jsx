@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Splide, SplideSlide } from '@splidejs/react-splide'; // Importing the Splide and SplideSlide components from the @splidejs/react-splide package
-import '@splidejs/splide/dist/css/themes/splide-default.min.css'; // Importing the default CSS theme for the Splide slider
-import './Home.css'; // Importing the Home component's own CSS file
+import { Splide, SplideSlide } from '@splidejs/react-splide'; // Importing Splide slider component
+import '@splidejs/splide/dist/css/themes/splide-default.min.css'; // Importing default styling for Splide slider
+import './Home.css';
 
 function Home() {
-  // Array of image URLs for the Splide slider
-  const images = [
+  const [isSpeaking, setIsSpeaking] = useState(false); // Setting state for whether intro is being spoken or not
+  const introText = "Welcome to our virtual exhibition of Rijksmuseum! We understand that getting out and about can be a challenge for some, and we believe that everyone deserves the chance to experience the beauty and wonder of art. That's why we've created a virtual space where you can explore the galleries of Rijksmuseum from the comfort of your own home. Our website is designed with accessibility in mind, to ensure that all people can easily navigate and enjoy the art on display. So come on in, take a virtual stroll through our Rijksmuseum galleries, and discover a whole new world of art that you may never have had the chance to experience before.";
+
+  const images = [ // Array of image URLs for the slider
     'https://images.pexels.com/photos/4449429/pexels-photo-4449429.jpeg?auto=compress&cs=tinysrgb&w=600',
     'https://images.pexels.com/photos/6039194/pexels-photo-6039194.jpeg?auto=compress&cs=tinysrgb&w=600',
     'https://images.pexels.com/photos/9022677/pexels-photo-9022677.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -17,33 +19,48 @@ function Home() {
     'https://images.pexels.com/photos/1414467/pexels-photo-1414467.jpeg?auto=compress&cs=tinysrgb&w=600'
   ];
 
-  // Options for the Splide slider
-  const options = {
+  const options = { // Options for the Splide slider
     perPage: 1, // Number of slides to display per page
-    rewind: true, // Whether to allow infinite looping of slides
-    gap: 10, // Gap between slides in pixels
-    pagination: false, // Whether to show pagination dots
-    arrows: true, // Whether to show arrow buttons
+    rewind: true, // Whether the slider should loop back to the beginning or stop at the last slide
+    gap: 10, // Space between slides
+    pagination: false, // Whether to show pagination bullets at the bottom of the slider
+    arrows: true, // Whether to show arrow buttons to navigate between slides
+  };
+
+  const speakIntro = () => { // Function to speak the intro text using the SpeechSynthesis API
+    const synth = window.speechSynthesis;
+    const introUtterance = new SpeechSynthesisUtterance(introText);
+    introUtterance.onend = () => {
+      setIsSpeaking(false); // Set isSpeaking state to false when intro is finished speaking
+    };
+    setIsSpeaking(true); // Set isSpeaking state to true while intro is speaking
+    synth.speak(introUtterance);
+  };
+
+  const stopReading = () => {
+    const synth = window.speechSynthesis;
+    synth.cancel();
+    setIsSpeaking(false);
   };
 
   return (
     <div>
-      <p className='intro'>
-        Welcome to our virtual exhibition of Rijksmuseum! We understand that getting out and about can be a challenge for some, and we believe that everyone deserves the chance to experience the beauty and wonder of art. That's why we've created a virtual space where you can explore the galleries of Rijksmuseum from the comfort of your own home. Our website is designed with accessibility in mind, to ensure that all people can easily navigate and enjoy the art on display. So come on in, take a virtual stroll through our Rijksmuseum galleries, and discover a whole new world of art that you may never have had the chance to experience before.
-      </p>
-      
-      {/* Link to the TourView component */}
+      <div className="intro-container">
+        <p className="intro">{introText}</p>
+        <button style={{ backgroundColor: '#F7C815', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px', marginBottom: '20px'}} onClick={speakIntro} disabled={isSpeaking}>
+          {isSpeaking ? 'Speaking...' : 'Read Introduction'}
+        </button >
+        {isSpeaking && <button style={{ backgroundColor: 'red', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px' }} onClick={stopReading}>Stop Reading</button>}
+      </div>
+
       <Link to="/TourView">
-        <button style={{ backgroundColor: '#CCD5AE', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '5px' }}>
+        <button style={{ backgroundColor: '#EC9704', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px' }}>
           Explore Rijksmuseum!
         </button>
       </Link>
-
-      {/* Splide slider component with options */}
+    {/* using react splide for creating an image gallery */}
       <Splide options={options} className='splide-container'>
-        {/* Mapping over the images array to create SplideSlide components */}
-        {images
-.map((image, index) => (
+        {images.map((image, index) => (
           <SplideSlide key={index} style={{ margin: '0 10px' }}>
           <img src={image} alt={`Rijksmuseum ${index}`} className="slide-image" style={{ display: 'block', margin: '10px auto !important', height: '50%', width: 'auto' }}
  />

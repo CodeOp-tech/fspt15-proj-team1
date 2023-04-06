@@ -94,14 +94,13 @@ function ArtView() {
             <h6 style={{ fontSize: "30px" }}>
               {artwork.artObject.label.description}
             </h6>
-            <button style={{fontSize: "20px",
- fontWeight: "bold", margin: "10px 0"}} onClick={toggleReading}>
+            <button style={{ backgroundColor: '#F7C815', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px', background: isReading ? 'red' : '#F7C815'}} onClick={toggleReading}>
               {isReading ? "Stop Reading" : "Read Description"}
             </button>
           </div>
 
           <Link to="/TourView" style={{display: "block", margin: "40px 0"}}>
-            <button style={{fontSize: "20px", fontWeight: "bold"}}>
+            <button style={{backgroundColor: '#EC9704', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px'}}>
               <i className="fa fa-chevron-left" style={{marginRight: "10px"}}></i>
               Go Back to the Gallery
             </button>
