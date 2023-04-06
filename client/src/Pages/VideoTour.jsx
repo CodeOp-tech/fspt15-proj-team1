@@ -26,7 +26,7 @@ function VideoTour() {
   return (
     <div className="video-tour-container">
       <button type="button" onClick={handleLearnFromMastersClick} style={{ backgroundColor: '#EC9704', color: 'white',  fontSize: '40px', padding: '10px 20px', border: 'none', borderRadius: '5px' }}>
-       <img src ="https://yt3.googleusercontent.com/ytc/AL5GRJUZkTEhtKB-KQpMPjR3suePIbvO3_MTMLF9Xr5K=s176-c-k-c0x00ffffff-no-rj-mo" alt="Learn From Masters"  width="auto" height="auto" />  Learn From Masters
+      <img className="image" src ="https://yt3.googleusercontent.com/ytc/AL5GRJUZkTEhtKB-KQpMPjR3suePIbvO3_MTMLF9Xr5K=s176-c-k-c0x00ffffff-no-rj-mo" alt="Learn From Masters" width="150" height="250"/> Learn From Masters
       </button>
       {isLearnFromMastersOpen && (
         <div className="video">
@@ -67,6 +67,3 @@ function VideoTour() {
 }
 
 export default VideoTour;
-
-
-
