@@ -36,7 +36,7 @@ function NavBar() {
 					<img
 						alt="logo"
 						src={image}
-						style={{ width: '250px', height: '250px' }}
+						style={{ width: '250px', height: '250px', position: "relative" }}
 					/>
 				</li>
 			</ul>
