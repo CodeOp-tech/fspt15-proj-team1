@@ -15,6 +15,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  vertical-align: middle;
+  font-size: 40px;
+  margin: 0 auto;
 }
 
 .social-icons a {
@@ -28,5 +31,7 @@
 
 .social-icons p {
   margin-left: 10px;
-  font-size: 14px;
+  font-size: 30px;
+  align-items: center;
+  display: flex;
 }
