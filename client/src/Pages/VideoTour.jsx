@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './VideoTour.css';
 
 function VideoTour() {
@@ -22,7 +22,6 @@ function VideoTour() {
       setIsReading(false);
     }
   };
-
   const toggleReading1 = () => {
     if (!isReading) {
       // Create a new SpeechSynthesisUtterance object and speak the description
@@ -33,13 +32,18 @@ function VideoTour() {
       setIsReading(true);
       speech.onend = () => setIsReading(false);
       window.speechSynthesis.speak(speech);
+  
+      // Add an event listener to stop speech when the user leaves the page
+      window.addEventListener('beforeunload', () => {
+        window.speechSynthesis.cancel();
+      });
     } else {
       // Stop speaking if the description is already being read out loud
       window.speechSynthesis.cancel();
       setIsReading(false);
     }
   };
-
+  
   return (
     
     <div>
