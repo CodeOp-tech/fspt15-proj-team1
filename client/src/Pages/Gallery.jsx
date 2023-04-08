@@ -12,24 +12,33 @@ import { TripleMaze } from 'react-spinner-animated';
 import 'react-spinner-animated/dist/index.css';
 
 const API_Key = 'IagrCxtB';
-
 //const imgUrl = collection[id].webImage.url;
+
+
 
 function Gallery({ hidden, setHidden }) {
 	const [collection, setCollection] = useState();
 	const [error, setError] = useState('');
 	//const [hidden, setHidden] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [isSpeaking, setIsSpeaking] = useState(false); // Setting state for whether intro is being spoken or not
+const introText = "Welcome to the Rijksmuseum in Amsterdam, one of the most renowned museums in the world! Founded in 1800, the Rijksmuseum is dedicated to preserving and showcasing the rich artistic and cultural heritage of the Netherlands, from the Middle Ages to modern times. With over 8,000 objects on display, including masterpieces by famous Dutch artists like Rembrandt, Vermeer, and Van Gogh, the Rijksmuseum offers visitors an unparalleled glimpse into the country's history, culture, and artistic achievements. Join us on this virtual tour and explore the museum's stunning collections and fascinating stories from the comfort of your own home.";
+const speakIntro = () => { // Function to speak the intro text using the SpeechSynthesis API
+    const synth = window.speechSynthesis;
+    const introUtterance = new SpeechSynthesisUtterance(introText);
+    introUtterance.onend = () => {
+      setIsSpeaking(false); // Set isSpeaking state to false when intro is finished speaking
+    };
+    setIsSpeaking(true); // Set isSpeaking state to true while intro is speaking
+    synth.speak(introUtterance);
+  };
 
-	/* const handleClick = (e) => {
-		e.preventDefault();
-		getCollection();
-		//	hideButton();
-	}; */
+  const stopReading = () => {
+    const synth = window.speechSynthesis;
+    synth.cancel();
+    setIsSpeaking(false);
+  };
 
-	/* const hideButton = () => {
-		hidden(true);
-	}; */
 
 	useEffect(() => {
 		getCollection();
@@ -68,47 +77,20 @@ function Gallery({ hidden, setHidden }) {
 				<h1>Welcome to the Rijksmuseum!</h1>
 				<br />
 				<div className="presentation">
-					Welcome to the Rijksmuseum in Amsterdam, one of the most renowned
-					museums in the world! Founded in 1800, the Rijksmuseum is dedicated to
-					preserving and showcasing the rich artistic and cultural heritage of
-					the Netherlands, from the Middle Ages to modern times. With over 8,000
-					objects on display, including masterpieces by famous Dutch artists
-					like Rembrandt, Vermeer, and Van Gogh, the Rijksmuseum offers visitors
-					an unparalleled glimpse into the country's history, culture, and
-					artistic achievements. Join us on this virtual tour and explore the
-					museum's stunning collections and fascinating stories from the comfort
-					of your own home.
-				</div>
-				{/* {!hidden && (
-				<button type="button" onClick={handleClick} className="btn">
-					<ImEye className="nav-icon" />
-					<br />
-					<span className="nav-text">See Gallery</span>
-				</button>
-			)} */}
-				{/* {loading ? (
-					<div className="spinner">
-						<TripleMaze
-							text={'Loading...'}
-							center={true}
-							width={'150px'}
-							height={'150px'}
-						/>
-
-					
-					</div>
-				) : ( */}
-				<div>
+					<p>{introText}</p>
+        <button style={{ backgroundColor: '#F7C815', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px', marginBottom: '20px'}} onClick={speakIntro} disabled={isSpeaking}>
+          {isSpeaking ? 'Speaking...' : 'Read Introduction'}
+        </button >
+        {isSpeaking && <button style={{ backgroundColor: 'red', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px' }} onClick={stopReading}>Stop Reading</button>}
+      </div>
+							<div>
 					{collection && (
 						<>
 							<ResponsiveMasonry
 								columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 4 }}>
 								<Masonry gutter="{{100 rem}}">
 									{collection.slice(0, imgs).map((obj, index) => (
-										/* 									<div className="col-sm-6 col-lg-4 mb-4">
-
- */
-
+										/* <div className="col-sm-6 col-lg-4 mb-4"> */
 										<Link
 											className="galleryImg card"
 											to={`/ArtView/${obj.objectNumber}`}
