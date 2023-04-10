@@ -12,9 +12,7 @@ import { TripleMaze } from 'react-spinner-animated';
 import 'react-spinner-animated/dist/index.css';
 
 const API_Key = 'IagrCxtB';
-//const imgUrl = collection[id].webImage.url;
-
-
+const apiUrl = `https://www.rijksmuseum.nl/api/en/collection?key=${API_Key}&hasImage=true&p=10.000&ps=100`;
 
 function Gallery({ hidden, setHidden }) {
 	const [collection, setCollection] = useState();
@@ -22,23 +20,24 @@ function Gallery({ hidden, setHidden }) {
 	//const [hidden, setHidden] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [isSpeaking, setIsSpeaking] = useState(false); // Setting state for whether intro is being spoken or not
-const introText = "Welcome to the Rijksmuseum in Amsterdam, one of the most renowned museums in the world! Founded in 1800, the Rijksmuseum is dedicated to preserving and showcasing the rich artistic and cultural heritage of the Netherlands, from the Middle Ages to modern times. With over 8,000 objects on display, including masterpieces by famous Dutch artists like Rembrandt, Vermeer, and Van Gogh, the Rijksmuseum offers visitors an unparalleled glimpse into the country's history, culture, and artistic achievements. Join us on this virtual tour and explore the museum's stunning collections and fascinating stories from the comfort of your own home.";
-const speakIntro = () => { // Function to speak the intro text using the SpeechSynthesis API
-    const synth = window.speechSynthesis;
-    const introUtterance = new SpeechSynthesisUtterance(introText);
-    introUtterance.onend = () => {
-      setIsSpeaking(false); // Set isSpeaking state to false when intro is finished speaking
-    };
-    setIsSpeaking(true); // Set isSpeaking state to true while intro is speaking
-    synth.speak(introUtterance);
-  };
+	const introText =
+		"Welcome to the Rijksmuseum in Amsterdam, one of the most renowned museums in the world! Founded in 1800, the Rijksmuseum is dedicated to preserving and showcasing the rich artistic and cultural heritage of the Netherlands, from the Middle Ages to modern times. With over 8,000 objects on display, including masterpieces by famous Dutch artists like Rembrandt, Vermeer, and Van Gogh, the Rijksmuseum offers visitors an unparalleled glimpse into the country's history, culture, and artistic achievements. Join us on this virtual tour and explore the museum's stunning collections and fascinating stories from the comfort of your own home.";
+	const speakIntro = () => {
+		// Function to speak the intro text using the SpeechSynthesis API
+		const synth = window.speechSynthesis;
+		const introUtterance = new SpeechSynthesisUtterance(introText);
+		introUtterance.onend = () => {
+			setIsSpeaking(false); // Set isSpeaking state to false when intro is finished speaking
+		};
+		setIsSpeaking(true); // Set isSpeaking state to true while intro is speaking
+		synth.speak(introUtterance);
+	};
 
-  const stopReading = () => {
-    const synth = window.speechSynthesis;
-    synth.cancel();
-    setIsSpeaking(false);
-  };
-
+	const stopReading = () => {
+		const synth = window.speechSynthesis;
+		synth.cancel();
+		setIsSpeaking(false);
+	};
 
 	useEffect(() => {
 		getCollection();
@@ -53,9 +52,7 @@ const speakIntro = () => { // Function to speak the intro text using the SpeechS
 	const getCollection = async () => {
 		try {
 			setLoading(true);
-			let response = await fetch(
-				`https://www.rijksmuseum.nl/api/en/collection?key=${API_Key}&hasImage=true&p=10.000&ps=100`
-			);
+			let response = await fetch('http://localhost:5002/collection');
 			if (response.ok) {
 				setLoading(false);
 				let data = await response.json();
@@ -78,12 +75,36 @@ const speakIntro = () => { // Function to speak the intro text using the SpeechS
 				<br />
 				<div className="presentation">
 					<p>{introText}</p>
-        <button style={{ backgroundColor: '#F7C815', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px', marginBottom: '20px'}} onClick={speakIntro} disabled={isSpeaking}>
-          {isSpeaking ? 'Speaking...' : 'Read Introduction'}
-        </button >
-        {isSpeaking && <button style={{ backgroundColor: 'red', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px' }} onClick={stopReading}>Stop Reading</button>}
-      </div>
-							<div>
+					<button
+						style={{
+							backgroundColor: '#F7C815',
+							color: 'white',
+							fontSize: '20px',
+							padding: '10px 20px',
+							border: 'none',
+							borderRadius: '5px',
+							marginBottom: '20px',
+						}}
+						onClick={speakIntro}
+						disabled={isSpeaking}>
+						{isSpeaking ? 'Speaking...' : 'Read Introduction'}
+					</button>
+					{isSpeaking && (
+						<button
+							style={{
+								backgroundColor: 'red',
+								color: 'white',
+								fontSize: '20px',
+								padding: '10px 20px',
+								border: 'none',
+								borderRadius: '5px',
+							}}
+							onClick={stopReading}>
+							Stop Reading
+						</button>
+					)}
+				</div>
+				<div>
 					{collection && (
 						<>
 							<ResponsiveMasonry

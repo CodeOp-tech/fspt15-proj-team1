@@ -1,5 +1,8 @@
 var express = require('express');
+var cors = require('cors');
 var router = express.Router();
+
+router.use(cors());
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -18,4 +21,7 @@ router.get('/collection', async function (req, res, next) {
 	}
 });
 
+/* router.listen(5002, function () {
+	console.log('CORS-enabled web server listening on port 5002');
+}); */
 module.exports = router;
