@@ -1,66 +1,109 @@
- 
+/* we added a media query that targets screens with a maximum width of 600 pixels */
+
 .navbar {
-            background-color: white;
-            color: #3D5B59;
-            font-size: large;
-            display: flex;
-            justify-content: left;
-            align-content: flex-start;
-            margin-left: 80px;
-        
-        }
+  background-color: white;
+  color: #3D5B59;
+  font-size: large;
+  display: flex;
+  justify-content: left;
+  align-content: flex-start;
+  margin-left: 80px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 ul li {
-        list-style: none;
-        padding: 10px 20px;
-  
-    }
-  
+  display: inline-block;
+  padding: 10px 20px;
+}
+
 ul li a {
-        text-decoration: none;
-        font-size: 24px;
-        font-weight: bold;
-        color: #3D5B59;
-        position: relative;
-  
-    }
-  
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3D5B59;
+  position: relative;
+}
+
 ul li a::before {
-        content: "";
-        width: 0px;
-        height: 10px;
-        background: #CCD5AE;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        transition: .5s;
-    }
-  
+  content: "";
+  width: 0px;
+  height: 10px;
+  background: #CCD5AE;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: .5s;
+}
+
 ul li a:hover::before {
-        width: 50%;
-        transform: translateX(100%);
-    }
+  width: 50%;
+  transform: translateX(100%);
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.nav-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.logo {
+  margin-right: 10px;
+  /* add the following styles to move the logo to the right */
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+/* media query for small screens */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
   
-          .nav-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-          }
-          
-          .nav-icon {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-          }
-          
-          .nav-text {
-            font-size: 1.2rem;
-            font-weight: bold;
-          }
-          .logo {
-            margin-right: 10px;
-            /* add the following styles to move the logo to the right */
-            display: flex;
-            justify-content: flex-end;
-            flex: 1;
-          }
+  ul li {
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  /* hide the nav-icons */
+  .nav-icon {
+    display: none;
+  }
+  
+  /* show the hamburger menu */
+  .menu-icon {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  /* hide the menu by default */
+  .menu {
+    display: none;
+  }
+  
+  /* show the menu when the hamburger menu is clicked */
+  .menu.show {
+    display: block;
+  }
+}
