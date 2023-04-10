@@ -51,11 +51,11 @@ function VideoTour() {
     
         <div className="content">
     
-          <p className="intro">{introText} <br></br>
+          <div className="intro">{introText} <br></br>
           <button style={{ backgroundColor: '#F7C815', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px', background: isReading ? 'red' : '#F7C815'}} onClick={toggleReading1}>
               {isReading ? "Stop Reading" : "Read Description"}
             </button>
-          </p>
+          </div>
           
           <iframe width="560" height="315" src="https://www.youtube.com/embed/nCVYEqc_Hw4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/fm5QeGGfKvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
