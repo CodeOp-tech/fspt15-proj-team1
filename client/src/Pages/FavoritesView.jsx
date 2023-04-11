@@ -3,7 +3,8 @@ import { useParams, Link } from "react-router-dom";
 
 // REMEMBER!! FOR FavoritesView ROUTES START WITH /favorites
 // DB STRUCTURE mysql/art/favorites
-// DATA FROM API:
+// DB TABLE DATA: objectNumber, title, imageURL
+// DATA FROM API: objectNumber, longTitle, webImage.url
 
 function FavoritesView() {
   // STORE FAV ART IN ARRAY
@@ -28,41 +29,24 @@ function FavoritesView() {
 
   return (
     <div>
-      <h2> My Favorite Artwork</h2>
-      <Grid>
+      <h2> Community Favorites </h2>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         {favorites.map((item) => {
           return (
-            <Card key={item.id}>
-              <Link to={"/ArtView/" + item.objectNumber}>
-                <img src={item.image} alt="" />
-                <h4>{item.title}</h4>
+            <div key={item.id} style={{ margin: "10px", width: "200px" }}>
+              <Link to={"/ArtView" + item.objectNumber}>
+                <img
+                  src={item.imageURL}
+                  alt={item.title}
+                  style={{ width: "100%", height: "auto", borderRadius: "5px" }}
+                />
               </Link>
-            </Card>
+            </div>
           );
         })}
-      </Grid>
+      </div>
     </div>
   );
-
-  const Grid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    grid-gap: 3rem;
-  `;
-
-  const Card = styled.div`
-    img {
-      width: 100%;
-      border-radius: 2rem;
-    }
-    a {
-      text-decoration: none;
-    }
-    h4 {
-      text-align: center;
-      padding: 1rem;
-    }
-  `;
 }
 
 export default FavoritesView;

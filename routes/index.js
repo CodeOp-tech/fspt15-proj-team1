@@ -32,7 +32,7 @@ router.get("/", function (req, res, next) {
 function getFavoritesList(req, res) {
   db("SELECT * FROM favorites")
     .then((results) => {
-      res.send(results.data);
+      res.send(results);
     })
     .catch((err) => res.status(500).send(err));
 }

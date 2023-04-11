@@ -10,7 +10,7 @@ function ArtView() {
   const [artwork, setArtwork] = useState({});
   const [isReading, setIsReading] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-  const [activeTab, setActiveTab] = useState("");
+  //const [activeTab, setActiveTab] = useState("");
 
   // API key for the Rijksmuseum API
   const API_Key = "IagrCxtB";
@@ -61,27 +61,32 @@ function ArtView() {
     }
   };
 
-  const addFavorite = async ({ objectNumber, title, imageURL }) => {
-    try {
-      let options = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          objectNumber: artwork.artObject.objectNumber,
-          title: artwork.artObject.longTitle,
-          imageURL: artwork.artObject.webImage.url,
-        }),
-      };
-      let results = await fetch("/favorites", options);
-      let data = await results.json();
-      console.log(data);
-      setIsFavorite(true);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const handleAddFavorite = useCallback(() => {
+    const addFavorite = async (artworkData) => {
+      try {
+        let options = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(artworkData),
+        };
+        let results = await fetch("/favorites", options);
+        let data = await results.json();
+        console.log(data);
+        setIsFavorite(true);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
-  async function deleteFavorite() {
+    addFavorite({
+      objectNumber: artwork.artObject.objectNumber,
+      title: artwork.artObject.longTitle,
+      imageURL: artwork.artObject.webImage.url,
+    });
+    setIsFavorite(true);
+  }, [artwork, setIsFavorite]);
+
+  /*async function deleteFavorite() {
     try {
       let options = {
         method: "DELETE",
@@ -96,9 +101,10 @@ function ArtView() {
     } catch (err) {
       console.log(err);
     }
-  }
+  }*/
 
   // ADD AND DELETE FAVORITE BUTTONS NEED TO BE STYLED
+  // PLEASE AND THANK YOU GS!!
 
   return (
     // Render the artwork data if it has been fetched
@@ -152,6 +158,7 @@ function ArtView() {
           </div>
 
           <button
+            onClick={handleAddFavorite}
             style={{
               backgroundColor: "#F7C815",
               color: "white",
@@ -159,38 +166,9 @@ function ArtView() {
               padding: "10px 20px",
               border: "none",
               borderRadius: "5px",
-              background: isReading ? "red" : "#F7C815",
             }}
-            className={activeTab === "favorite" ? "active" : ""}
-            onClick={() =>
-              addFavorite({
-                objectNumber: artwork.artObject.objectNumber,
-                title: artwork.artObject.longTitle,
-                image: artwork.artObject.webImage.url,
-              })
-            }
           >
-            Add to Favorites
-          </button>
-
-          <button
-            style={{
-              backgroundColor: "#F7C815",
-              color: "white",
-              fontSize: "20px",
-              padding: "10px 20px",
-              border: "none",
-              borderRadius: "5px",
-              background: isReading ? "red" : "#F7C815",
-            }}
-            className={activeTab === "notfavorite" ? "active" : ""}
-            onClick={() =>
-              deleteFavorite({
-                objectNumber: artwork.artObject.objectNumber,
-              })
-            }
-          >
-            Remove from Favorites
+            {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
           </button>
 
           <Link to="/Gallery" style={{ display: "block", margin: "40px 0" }}>
