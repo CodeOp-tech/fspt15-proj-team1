@@ -64,6 +64,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [react-router-dom](https://www.geeksforgeeks.org/what-is-react-router-dom/)
 - [react-splide](https://splidejs.com/integration/react-splide/)
 - [react-responsive-masonry](https://www.npmjs.com/package/react-responsive-masonry)
+- [react-icons](https://www.npmjs.com/package/react-icons)
 
 ## User Flow
 
