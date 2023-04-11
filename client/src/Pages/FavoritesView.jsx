@@ -31,19 +31,27 @@ function FavoritesView() {
     <div>
       <h2> Community Favorites </h2>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {favorites.map((item) => {
-          return (
-            <div key={item.id} style={{ margin: "10px", width: "200px" }}>
-              <Link to={"/ArtView" + item.objectNumber}>
-                <img
-                  src={item.imageURL}
-                  alt={item.title}
-                  style={{ width: "100%", height: "auto", borderRadius: "5px" }}
-                />
-              </Link>
-            </div>
-          );
-        })}
+        {Array.isArray(favorites) ? (
+          favorites.map((item) => {
+            return (
+              <div key={item.id} style={{ margin: "10px", width: "200px" }}>
+                <Link to={"/ArtView/" + item.objectNumber}>
+                  <img
+                    src={item.imageURL}
+                    alt={item.title}
+                    style={{
+                      width: "100%",
+                      height: "auto",
+                      borderRadius: "5px",
+                    }}
+                  />
+                </Link>
+              </div>
+            );
+          })
+        ) : (
+          <p>No Favorites Found</p>
+        )}
       </div>
     </div>
   );

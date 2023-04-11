@@ -18,7 +18,7 @@ con.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
 
-  let sql = `DROP TABLE IF EXISTS favorites; CREATE TABLE favorites (id INT NOT NULL AUTO_INCREMENT, objectNumber INT, title VARCHAR(2000), imageURL VARCHAR(2000), PRIMARY KEY (id));
+  let sql = `DROP TABLE IF EXISTS favorites; CREATE TABLE favorites (id INT NOT NULL AUTO_INCREMENT, objectNumber VARCHAR(2000), title VARCHAR(2000), imageURL VARCHAR(2000), PRIMARY KEY (id));
    `;
 
   con.query(sql, function (err, result) {

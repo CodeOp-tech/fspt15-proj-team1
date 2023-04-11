@@ -46,7 +46,7 @@ router.get("/favorites", async function (req, res) {
 // ART ADDED BY CLICKING "Add to Favorites" BUTTON ON ArtView
 router.post("/favorites", function (req, res) {
   let { objectNumber, title, imageURL } = req.body;
-  let sql = `INSERT INTO favorites (objectNumber, title, imageURL) VALUES (${objectNumber}, '${title}', '${imageURL}');`;
+  let sql = `INSERT INTO favorites (objectNumber, title, imageURL) VALUES ('${objectNumber}', '${title}', '${imageURL}');`;
   db(sql)
     .then((results) => {
       getFavoritesList(req, res);
