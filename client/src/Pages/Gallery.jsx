@@ -52,7 +52,7 @@ function Gallery({ hidden, setHidden }) {
 	const getCollection = async () => {
 		try {
 			setLoading(true);
-			let response = await fetch('http://localhost:5002/collection');
+			let response = await fetch(apiUrl);
 			if (response.ok) {
 				setLoading(false);
 				let data = await response.json();
