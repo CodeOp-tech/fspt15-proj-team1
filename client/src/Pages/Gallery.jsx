@@ -21,7 +21,7 @@ function Gallery({ hidden, setHidden }) {
 	const [loading, setLoading] = useState(false);
 	const [isSpeaking, setIsSpeaking] = useState(false); // Setting state for whether intro is being spoken or not
 	const introText =
-		"Welcome to the Rijksmuseum in Amsterdam, one of the most renowned museums in the world! Founded in 1800, the Rijksmuseum is dedicated to preserving and showcasing the rich artistic and cultural heritage of the Netherlands, from the Middle Ages to modern times. With over 8,000 objects on display, including masterpieces by famous Dutch artists like Rembrandt, Vermeer, and Van Gogh, the Rijksmuseum offers visitors an unparalleled glimpse into the country's history, culture, and artistic achievements. Join us on this virtual tour and explore the museum's stunning collections and fascinating stories from the comfort of your own home.";
+		"The Rijksmuseum in Amsterdam is one of the most renowned museums in the world!  Founded in 1800, this museum is dedicated to preserving and showcasing the rich artistic and cultural heritage of the Netherlands, from the Middle Ages to modern times. With over 8,000 objects on display, including masterpieces by famous Dutch artists like Rembrandt, Vermeer, and Van Gogh, the Rijksmuseum offers visitors an unparalleled glimpse into the country's history, culture, and artistic achievements. Join us on this virtual tour and explore the museum's stunning collections and fascinating stories from the comfort of your own home.";
 	const speakIntro = () => {
 		// Function to speak the intro text using the SpeechSynthesis API
 		const synth = window.speechSynthesis;
@@ -72,13 +72,13 @@ function Gallery({ hidden, setHidden }) {
 		<>
 			<div className="gallery container py-5">
 				<h1>Welcome to the Rijksmuseum!</h1>
-				<br />
+
 				<div className="presentation">
 					<p>{introText}</p>
 					<button
 						style={{
 							backgroundColor: '#F7C815',
-							color: 'white',
+							color: 'black',
 							fontSize: '20px',
 							padding: '10px 20px',
 							border: 'none',
@@ -93,7 +93,7 @@ function Gallery({ hidden, setHidden }) {
 						<button
 							style={{
 								backgroundColor: 'red',
-								color: 'white',
+								color: 'black',
 								fontSize: '20px',
 								padding: '10px 20px',
 								border: 'none',
