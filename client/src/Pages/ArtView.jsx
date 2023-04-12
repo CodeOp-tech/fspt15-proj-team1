@@ -144,7 +144,7 @@ function ArtView() {
             <button
               style={{
                 backgroundColor: "#F7C815",
-                color: "white",
+                color: "black",
                 fontSize: "20px",
                 padding: "10px 20px",
                 border: "none",
@@ -160,8 +160,8 @@ function ArtView() {
           <button
             onClick={handleAddFavorite}
             style={{
-              backgroundColor: "#F7C815",
-              color: "white",
+              backgroundColor: "yellow",
+              color: "black",
               fontSize: "20px",
               padding: "10px 20px",
               border: "none",
@@ -175,7 +175,7 @@ function ArtView() {
             <button
               style={{
                 backgroundColor: "#EC9704",
-                color: "white",
+                color: "black",
                 fontSize: "20px",
                 padding: "10px 20px",
                 border: "none",
