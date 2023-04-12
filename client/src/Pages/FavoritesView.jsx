@@ -30,7 +30,7 @@ function FavoritesView() {
   return (
     <div>
       <h2> Community Favorites </h2>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
         {Array.isArray(favorites) ? (
           favorites.map((item) => {
             return (
@@ -52,6 +52,24 @@ function FavoritesView() {
         ) : (
           <p>No Favorites Found</p>
         )}
+           <Link to="/Gallery" style={{ display: "block", margin: "40px 0" }}>
+            <button
+              style={{
+                backgroundColor: "#EC9704",
+                color: "black",
+                fontSize: "20px",
+                padding: "10px 20px",
+                border: "none",
+                borderRadius: "5px",
+              }}
+            >
+              <i
+                className="fa fa-chevron-left"
+                style={{ marginRight: "10px" }}
+              ></i>
+              Go Back to the Gallery
+            </button>
+          </Link>
       </div>
     </div>
   );
