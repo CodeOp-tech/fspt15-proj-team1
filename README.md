@@ -67,6 +67,25 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [react-icons](https://www.npmjs.com/package/react-icons)
 - [CORS](https://expressjs.com/en/resources/middleware/cors.html)
 
+## Database Prep
+
+Access the MySQL interface in terminal by running `mysql -u root -p`
+Create a new database called 'art': `create database art`
+
+Add a `.env` file to root containing MySQL authentication information:
+
+```
+DB_HOST = localhost
+DB_USER = root
+DB_PASS = YOUR PASSWORD
+DB_NAME = art
+SUPER_SECRET=mkaejRGAWTRKLWQE4IR792B309N27GBVV7389B3
+REACT_APP_API_KEY=413c7b6be3msh42fe1d0387adabbp157ab9jsn976f3c951d21
+
+```
+
+- Run `npm run migrate` in the root folder in a new terminal window. This will create table 'favorites'.
+
 ## User Flow
 
 - [Image here:](Artega_UserFlow.png)
