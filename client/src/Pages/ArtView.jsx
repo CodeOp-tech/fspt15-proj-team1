@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
+import FavoritesView from "./FavoritesView";
 
 function ArtView() {
   // Get the objectNumber from the URL parameter using useParams() hook

@@ -16,7 +16,7 @@ function FavoritesView() {
     try {
       let results = await fetch("/favorites");
       let data = await results.json();
-      setFavorites(data);
+      setFavorites(data.data);
     } catch (err) {
       console.log(err);
     }
@@ -35,7 +35,7 @@ function FavoritesView() {
           favorites.map((item) => {
             return (
               <div key={item.id} style={{ margin: "10px", width: "200px" }}>
-                <Link to={`/ArtView/${item.objectNumber}`}>
+                <Link to={"/ArtView" + item.objectNumber}>
                   <img
                     src={item.imageURL}
                     alt={item.title}
