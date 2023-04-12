@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
-import FavoritesView from "./FavoritesView";
 
 function ArtView() {
   // Get the objectNumber from the URL parameter using useParams() hook
@@ -168,7 +167,9 @@ function ArtView() {
               borderRadius: "5px",
             }}
           >
-            {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+            {isFavorite
+              ? "Added to Community Favorites"
+              : "Add to Community Favorites"}
           </button>
 
           <Link to="/Gallery" style={{ display: "block", margin: "40px 0" }}>

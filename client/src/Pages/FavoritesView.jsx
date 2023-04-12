@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // REMEMBER!! FOR FavoritesView ROUTES START WITH /favorites
 // DB STRUCTURE mysql/art/favorites
@@ -16,7 +16,11 @@ function FavoritesView() {
     try {
       let results = await fetch("/favorites");
       let data = await results.json();
-      setFavorites(data.data);
+      let uniqueFavorites = data.data.filter(
+        (item, index, self) =>
+          index === self.findIndex((t) => t.objectNumber === item.objectNumber)
+      );
+      setFavorites(uniqueFavorites);
     } catch (err) {
       console.log(err);
     }
@@ -30,7 +34,9 @@ function FavoritesView() {
   return (
     <div>
       <h1> Community Favorites </h1>
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+      <div
+        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
+      >
         {Array.isArray(favorites) ? (
           favorites.map((item) => {
             return (
@@ -52,26 +58,22 @@ function FavoritesView() {
         ) : (
           <p>No Favorites Found</p>
         )}
-           
       </div>
       <Link to="/Gallery" style={{ display: "block", margin: "40px 0" }}>
-            <button
-              style={{
-                backgroundColor: "#EC9704",
-                color: "black",
-                fontSize: "20px",
-                padding: "10px 20px",
-                border: "none",
-                borderRadius: "5px",
-              }}
-            >
-              <i
-                className="fa fa-chevron-left"
-                style={{ marginRight: "10px" }}
-              ></i>
-              Go Back to the Gallery
-            </button>
-          </Link>
+        <button
+          style={{
+            backgroundColor: "#EC9704",
+            color: "black",
+            fontSize: "20px",
+            padding: "10px 20px",
+            border: "none",
+            borderRadius: "5px",
+          }}
+        >
+          <i className="fa fa-chevron-left" style={{ marginRight: "10px" }}></i>
+          Go Back to the Gallery
+        </button>
+      </Link>
     </div>
   );
 }
