@@ -10,11 +10,6 @@ function FavoritesView() {
   // STORE FAV ART IN ARRAY
   const [favorites, setFavorites] = useState([]);
 
-  useEffect(() => {
-    // USE getFavorites FUNCTION BELOW TO LOAD FAVORITE ART
-    getFavorites();
-  }, []);
-
   // FUNCTION TO RETRIEVE FAVORITES FROM DATABASE
   // LOOP THROUGH USING SAVED RIJKSMUSEUM API objectNumber
   async function getFavorites() {
@@ -27,6 +22,11 @@ function FavoritesView() {
     }
   }
 
+  useEffect(() => {
+    // USE getFavorites FUNCTION  TO LOAD FAVORITE ART
+    getFavorites();
+  }, []);
+
   return (
     <div>
       <h2> Community Favorites </h2>
@@ -35,7 +35,7 @@ function FavoritesView() {
           favorites.map((item) => {
             return (
               <div key={item.id} style={{ margin: "10px", width: "200px" }}>
-                <Link to={"/ArtView/" + item.objectNumber}>
+                <Link to={`/ArtView/${item.objectNumber}`}>
                   <img
                     src={item.imageURL}
                     alt={item.title}

@@ -104,7 +104,6 @@ function ArtView() {
   }*/
 
   // ADD AND DELETE FAVORITE BUTTONS NEED TO BE STYLED
-  // PLEASE AND THANK YOU GS!!
 
   return (
     // Render the artwork data if it has been fetched
