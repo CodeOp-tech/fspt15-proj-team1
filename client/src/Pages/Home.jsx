@@ -83,7 +83,7 @@ function Home() {
         )}
       </div>
 
-      <Link to="/TourView">
+      <Link to="/Gallery">
         <button
           style={{
             backgroundColor: "#EC9704",
