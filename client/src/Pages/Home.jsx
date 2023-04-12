@@ -11,14 +11,14 @@ function Home() {
 
   const images = [
     // Array of image URLs for the slider
+    "https://images.pexels.com/photos/208733/pexels-photo-208733.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/1414467/pexels-photo-1414467.jpeg?auto=compress&cs=tinysrgb&w=600",
     "https://images.pexels.com/photos/4449429/pexels-photo-4449429.jpeg?auto=compress&cs=tinysrgb&w=600",
     "https://images.pexels.com/photos/6039194/pexels-photo-6039194.jpeg?auto=compress&cs=tinysrgb&w=600",
     "https://images.pexels.com/photos/9022677/pexels-photo-9022677.jpeg?auto=compress&cs=tinysrgb&w=600",
     "https://images.pexels.com/photos/4456986/pexels-photo-4456986.jpeg?auto=compress&cs=tinysrgb&w=600",
     "https://www.european-umbrellas.com/pub/media/amasty/blog/cache/R/i/950/535/Rijksmuseum-Amsterdam-796.jpg",
     "https://images.pexels.com/photos/6318598/pexels-photo-6318598.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/208733/pexels-photo-208733.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "https://images.pexels.com/photos/1414467/pexels-photo-1414467.jpeg?auto=compress&cs=tinysrgb&w=600",
   ];
 
   const options = {
