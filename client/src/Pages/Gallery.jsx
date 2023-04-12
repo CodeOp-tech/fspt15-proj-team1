@@ -104,7 +104,7 @@ function Gallery({ hidden, setHidden }) {
 						</button>
 					)}
 				</div>
-				<div>
+				<div className="collection-div">
 					{collection && (
 						<>
 							<ResponsiveMasonry
@@ -126,7 +126,8 @@ function Gallery({ hidden, setHidden }) {
 									))}
 								</Masonry>
 							</ResponsiveMasonry>
-							<div>
+							<br />
+							<div className="LMButton-div">
 								{imgs < collection.length && (
 									<button
 										type="button"
