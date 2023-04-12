@@ -78,10 +78,10 @@ const speakIntro = () => { // Function to speak the intro text using the SpeechS
 				<br />
 				<div className="presentation">
 					<p>{introText}</p>
-        <button style={{ backgroundColor: '#F7C815', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px', marginBottom: '20px'}} onClick={speakIntro} disabled={isSpeaking}>
+        <button style={{ backgroundColor: '#F7C815', color: 'black',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px', marginBottom: '20px'}} onClick={speakIntro} disabled={isSpeaking}>
           {isSpeaking ? 'Speaking...' : 'Read Introduction'}
         </button >
-        {isSpeaking && <button style={{ backgroundColor: 'red', color: 'white',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px' }} onClick={stopReading}>Stop Reading</button>}
+        {isSpeaking && <button style={{ backgroundColor: 'red', color: 'black',  fontSize: '20px', padding: '10px 20px', border: 'none', borderRadius: '5px' }} onClick={stopReading}>Stop Reading</button>}
       </div>
 							<div>
 					{collection && (
