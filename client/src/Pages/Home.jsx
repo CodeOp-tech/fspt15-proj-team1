@@ -54,7 +54,7 @@ function Home() {
 				<button
 					style={{
 						backgroundColor: '#F7C815',
-						color: 'white',
+						color: 'black',
 						fontSize: '20px',
 						padding: '10px 20px',
 						border: 'none',
@@ -69,7 +69,7 @@ function Home() {
 					<button
 						style={{
 							backgroundColor: 'red',
-							color: 'white',
+							color: 'black',
 							fontSize: '20px',
 							padding: '10px 20px',
 							border: 'none',
@@ -85,7 +85,7 @@ function Home() {
 				<button
 					style={{
 						backgroundColor: '#EC9704',
-						color: 'white',
+						color: 'black',
 						fontSize: '20px',
 						padding: '10px 20px',
 						border: 'none',
