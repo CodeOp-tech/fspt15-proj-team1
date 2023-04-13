@@ -33,5 +33,6 @@
   margin-left: 10px;
   font-size: 30px;
   align-items: center;
+  vertical-align: middle;
   display: flex;
 }
