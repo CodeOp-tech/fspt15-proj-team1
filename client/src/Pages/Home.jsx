@@ -8,7 +8,7 @@ import { FiVolume2, FiVolumeX } from 'react-icons/fi';
 function Home() {
 	const [isSpeaking, setIsSpeaking] = useState(false); // Setting state for whether intro is being spoken or not
 	const introText =
-		"Artega is brought by you by the ReTaGa Project. We understand that getting out and about can be a challenge for some, and we believe that everyone deserves the chance to experience the beauty and wonder of art. That's why we have created a virtual space where you can explore the galleries of some museums from the comfort of your own home. Our website is designed with accessibility in mind, to ensure that all people can easily navigate and enjoy the art on display. So come on in, take a virtual stroll through our museums galleries, and discover a whole new world of art that you may never have had the chance to experience before.";
+		"Artega is brought by you by the ReTaGa Project. We understand that getting out and about can be a challenge for some, and we believe that everyone deserves the chance to experience the beauty and wonder of art. That's why we have created a virtual space where you can explore the galleries of some museums from the comfort of your own home. Our website is designed with accessibility in mind, to ensure that all people can easily navigate and enjoy the art on display. So come on in, take a virtual stroll through our museums' galleries, and discover a whole new world of art that you may never have had the chance to experience before.";
 
 	const images = [
 		// Array of image URLs for the slider
@@ -59,7 +59,7 @@ function Home() {
 						style={{
 							backgroundColor: '#F7C815',
 							color: 'black',
-							fontSize: '20px',
+							fontSize: '25px',
 							padding: '10px 20px',
 							border: 'none',
 							borderRadius: '5px',
@@ -75,7 +75,7 @@ function Home() {
 							style={{
 								backgroundColor: 'red',
 								color: 'black',
-								fontSize: '20px',
+								fontSize: '25px',
 								padding: '10px 20px',
 								border: 'none',
 								borderRadius: '5px',
@@ -90,7 +90,7 @@ function Home() {
 						style={{
 							backgroundColor: '#EC9704',
 							color: 'black',
-							fontSize: '20px',
+							fontSize: '30px',
 							padding: '10px 20px',
 							border: 'none',
 							borderRadius: '5px',
