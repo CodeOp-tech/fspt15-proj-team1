@@ -44,7 +44,7 @@ function VideoTour() {
 	};
 
 	return (
-		<div className="videoTour-container container ">
+		<div className="videoTour-container container py-5">
 			<div className="content">
 				<div className="intro">
 					<p>{introText}</p>
@@ -132,7 +132,7 @@ function VideoTour() {
 
 			<div className="content">
 				<p className="intro">
-					{introduction} <br></br>
+					<p>{introduction}</p>
 					<button
 						style={{
 							backgroundColor: '#F7C815',
