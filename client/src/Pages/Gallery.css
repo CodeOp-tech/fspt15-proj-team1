@@ -14,13 +14,6 @@ h1 {
 	width: 100%;
 }
 
-.spinner {
-	display: block;
-	color: #3d5b59;
-	font-weight: 800;
-	position: fixed;
-}
-
 .coll-img {
 	width: 100%;
 	padding: 5%;

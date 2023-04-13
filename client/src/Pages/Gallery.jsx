@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Gallery.css';
-import { FiImage } from 'react-icons/fi';
-import { HiOutlinePaintBrush } from 'react-icons/hi2';
+
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
-
-import { ImImages, ImEye, ImEyePlus } from 'react-icons/im';
-
-import { TripleMaze } from 'react-spinner-animated';
+import { FiVolume2, FiVolumeX } from 'react-icons/fi';
+import { ImEyePlus } from 'react-icons/im';
 
 import 'react-spinner-animated/dist/index.css';
 
@@ -21,7 +18,7 @@ function Gallery({ hidden, setHidden }) {
 	const [loading, setLoading] = useState(false);
 	const [isSpeaking, setIsSpeaking] = useState(false); // Setting state for whether intro is being spoken or not
 	const introText =
-		"The Rijksmuseum in Amsterdam is one of the most renowned museums in the world!  Founded in 1800, this museum is dedicated to preserving and showcasing the rich artistic and cultural heritage of the Netherlands, from the Middle Ages to modern times. With over 8,000 objects on display, including masterpieces by famous Dutch artists like Rembrandt, Vermeer, and Van Gogh, the Rijksmuseum offers visitors an unparalleled glimpse into the country's history, culture, and artistic achievements. Join us on this virtual tour and explore the museum's stunning collections and fascinating stories from the comfort of your own home.";
+		"Artega is brought by you by the ReTaGa Project. We understand that getting out and about can be a challenge for some, and we believe that everyone deserves the chance to experience the beauty and wonder of art. That's why we have created a virtual space where you can explore the galleries of some museums from the comfort of your own home. Our website is designed with accessibility in mind, to ensure that all people can easily navigate and enjoy the art on display. So come on in, take a virtual stroll through our museums galleries, and discover a whole new world of art that you may never have had the chance to experience before.";
 	const speakIntro = () => {
 		// Function to speak the intro text using the SpeechSynthesis API
 		const synth = window.speechSynthesis;
@@ -67,7 +64,6 @@ function Gallery({ hidden, setHidden }) {
 		}
 	};
 
-	//	const visibleImages = collection.slice(0, rows);
 	return (
 		<>
 			<div className="gallery container py-5">
@@ -87,7 +83,8 @@ function Gallery({ hidden, setHidden }) {
 						}}
 						onClick={speakIntro}
 						disabled={isSpeaking}>
-						{isSpeaking ? 'Speaking...' : 'Read Introduction'}
+						{isSpeaking ? 'Speaking...' : 'Click to hear this text'}
+						<FiVolume2 className="TSS-icon" />
 					</button>
 					{isSpeaking && (
 						<button
@@ -100,7 +97,7 @@ function Gallery({ hidden, setHidden }) {
 								borderRadius: '5px',
 							}}
 							onClick={stopReading}>
-							Stop Reading
+							Stop Audio <FiVolumeX className="TSS-icon" />
 						</button>
 					)}
 				</div>

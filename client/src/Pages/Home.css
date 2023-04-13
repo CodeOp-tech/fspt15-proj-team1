@@ -1,9 +1,14 @@
-.intro-container {
+/* .intro-container {
 	width: 90%;
 	margin: auto;
-  }
-  
-  .intro {
+} */
+
+h1 {
+	font-weight: 700;
+	margin-bottom: 3rem;
+}
+
+.intro {
 	background-color: #f0f0f0;
 	color: #333;
 	padding: 20px;
@@ -12,17 +17,16 @@
 	text-align: center;
 	margin-bottom: 40px;
 	width: 100%;
-  }
-  
-  .splide-container {
+}
+
+.splide-container {
 	padding-left: auto;
 	padding-right: auto;
-  }
-  
-  .slide-image {
+}
+
+.slide-image {
 	display: block;
 	margin: 10px auto;
 	height: 60%; /* updated height */
 	width: auto;
-  }
-  
+}

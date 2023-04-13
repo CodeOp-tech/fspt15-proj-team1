@@ -8,6 +8,14 @@ Current features include a virtual exhibition of the Rijksmuseum, which can be e
 
 Another feature that can be accessed from the VideoTour page are two collections of art-focused, educational videos: Learn From Masters and Great Art Explained. By allowing users to access these curated videos directly from the app, it takes the guesswork and potential frustration out of having to search through countless videos online to find content that is focused exlusively on learning about and appreciating art. The Learn From Masters collection includes videos dedicated to exploring the works and lives of some of hte greatest artists in history such as Van Gogh and Michelangelo. The Great Art Explained collection includes videos dedicated to exploring some of the world's most iconic and captivating works of art, including the Mona Lisa and Klimt's The Kiss.
 
+## Technologies
+
+- React
+- Express
+- Node.js
+- Bootstrap
+- MySQL
+
 ## React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
