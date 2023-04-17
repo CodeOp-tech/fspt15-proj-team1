@@ -18,7 +18,7 @@ function Gallery({ hidden, setHidden }) {
 	const [loading, setLoading] = useState(false);
 	const [isSpeaking, setIsSpeaking] = useState(false); // Setting state for whether intro is being spoken or not
 	const introText =
-		"Artega is brought by you by the ReTaGa Project. We understand that getting out and about can be a challenge for some, and we believe that everyone deserves the chance to experience the beauty and wonder of art. That's why we have created a virtual space where you can explore the galleries of some museums from the comfort of your own home. Our website is designed with accessibility in mind, to ensure that all people can easily navigate and enjoy the art on display. So come on in, take a virtual stroll through our museums galleries, and discover a whole new world of art that you may never have had the chance to experience before.";
+		"The Rijksmuseum in Amsterdam is one of the most renowned museums in the world! Founded in 1800, this museum is dedicated to preserving and showcasing the rich artistic and cultural heritage of the Netherlands, from the Middle Ages to modern times. With over 8,000 objects on display, including masterpieces by famous Dutch artists like Rembrandt, Vermeer, and Van Gogh, the Rijksmuseum offers visitors an unparalleled glimpse into the country's history, culture, and artistic achievements. Join us on this virtual tour and explore the museum's stunning collections and fascinating stories from the comfort of your own home.";
 	const speakIntro = () => {
 		// Function to speak the intro text using the SpeechSynthesis API
 		const synth = window.speechSynthesis;
@@ -75,7 +75,7 @@ function Gallery({ hidden, setHidden }) {
 						style={{
 							backgroundColor: '#F7C815',
 							color: 'black',
-							fontSize: '20px',
+							fontSize: '25px',
 							padding: '10px 20px',
 							border: 'none',
 							borderRadius: '5px',
@@ -91,7 +91,7 @@ function Gallery({ hidden, setHidden }) {
 							style={{
 								backgroundColor: 'red',
 								color: 'black',
-								fontSize: '20px',
+								fontSize: '25px',
 								padding: '10px 20px',
 								border: 'none',
 								borderRadius: '5px',
@@ -133,7 +133,13 @@ function Gallery({ hidden, setHidden }) {
 										<ImEyePlus className="nav-icon" />
 
 										<br />
-										<span className="nav-text">See more art</span>
+										<span
+											className="nav-text"
+											style={{
+												fontSize: '25px',
+											}}>
+											Click to see more art
+										</span>
 									</button>
 								)}
 							</div>

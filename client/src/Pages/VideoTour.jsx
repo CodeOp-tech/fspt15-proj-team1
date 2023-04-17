@@ -52,7 +52,7 @@ function VideoTour() {
 						style={{
 							backgroundColor: '#F7C815',
 							color: 'black',
-							fontSize: '20px',
+							fontSize: '25px',
 							padding: '10px 20px',
 							border: 'none',
 							borderRadius: '5px',
@@ -137,7 +137,7 @@ function VideoTour() {
 						style={{
 							backgroundColor: '#F7C815',
 							color: 'black',
-							fontSize: '20px',
+							fontSize: '25px',
 							padding: '10px 20px',
 							border: 'none',
 							borderRadius: '5px',
